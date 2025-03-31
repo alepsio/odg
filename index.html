@@ -24,69 +24,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
   
-    <!-- Stile personalizzato -->
-    <style>
-      body {
-        font-family: 'Playfair Display', serif;
-        scroll-behavior: smooth;
-        background: #fff;
-        color: #333;
-      }
-      header {
-        height: 100vh;
-        background: url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde') no-repeat center center/cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        position: relative;
-      }
-      header::after {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0, 0, 0, 0.4);
-      }
-      header h1 {
-        position: relative;
-        z-index: 1;
-        font-size: 3.5rem;
-        line-height: 1.3;
-      }
-      .section {
-        padding: 100px 20px;
-      }
-      .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 40px;
-      }
-      .portfolio img {
-        width: 100%;
-        height: auto;
-        transition: transform 0.3s, box-shadow 0.3s;
-        border-radius: 8px;
-      }
-      .portfolio img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      }
-      .social-icons a {
-        color: #555;
-        margin: 0 10px;
-        font-size: 1.5rem;
-        transition: color 0.3s;
-      }
-      .social-icons a:hover {
-        color: #000;
-      }
-      footer {
-        background-color: #f8f9fa;
-        padding: 40px;
-        text-align: center;
-      }
-    </style>
+
 </head>
   
 
@@ -112,17 +53,19 @@
   </nav>
 
   <!-- Hero -->
-  <header>
-    <h1 id="odg-title">
-      <span>O</span><span>L</span><span>G</span><span>A</span>
-      <br>
-      <span>D</span><span>I</span>
-      <br>
-      <span>G</span><span>A</span><span>E</span><span>T</span><span>A</span><span>N</span><span>O</span>
-      <br>
-      <small style="font-size: 1.5rem; display: block; margin-top: 10px;">Graphic Designer per Matrimoni</small>
-    </h1>
+  <header class="hero-particles">
+    <div id="particles-js"></div>
+    <div class="hero-content text-center position-relative z-1">
+      <h1 id="odg-title">
+        <span>O</span><span>L</span><span>G</span><span>A</span><br>
+        <span>D</span><span>I</span><br>
+        <span>G</span><span>A</span><span>E</span><span>T</span><span>A</span><span>N</span><span>O</span><br>
+        <small style="font-size: 1.5rem; display: block; margin-top: 10px;">Graphic Designer per Matrimoni</small>
+      </h1>
+    </div>
   </header>
+  
+  
   
 
   <!-- Chi Sono -->
@@ -131,62 +74,107 @@
     <p class="text-center" data-aos="fade-up" data-aos-delay="100">Ciao! Mi chiamo Olga e sono una graphic designer specializzata nel rendere indimenticabile il giorno delle tue nozze. Dal primo invito fino al ringraziamento finale, creo esperienze visive eleganti, raffinate e su misura per ogni coppia.</p>
   </section>
 
-  <!-- Servizi -->
+    <!-- Servizi completa -->
   <section class="section bg-light" id="servizi">
     <div class="container">
       <h2 class="section-title text-center" data-aos="fade-up">Servizi</h2>
-      <div class="row text-center">
-        <div class="col-md-4" data-aos="zoom-in">
-          <h4>Inviti Personalizzati</h4>
-          <p>Ogni invito è un'opera d'arte pensata per raccontare la vostra storia d'amore.</p>
+      <div class="row g-4 justify-content-center" id="servizi-container">
+        
+        <div class="col-md-4 servizio-card" data-id="inviti">
+          <div class="inner-card p-4 text-center shadow">
+            <i class="fas fa-envelope-open-text fa-2x mb-3 text-primary"></i>
+            <h4>Inviti Personalizzati</h4>
+            <p class="descrizione">Ogni invito è un'opera d'arte pensata per raccontare la vostra storia d'amore.</p>
+            <div class="dettagli mt-3">
+              <p>Creo inviti unici, stampati su carte pregiate e curati nei minimi dettagli per un risultato raffinato.</p>
+              <img src="img/inviti.jpg" class="img-fluid rounded mt-2" alt="Inviti">
+            </div>
+          </div>
         </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-          <h4>Coordinati Nozze</h4>
-          <p>Menu, segnaposto, tableau de mariage e tanto altro, tutto coordinato con stile.</p>
+  
+        <div class="col-md-4 servizio-card" data-id="coordinati">
+          <div class="inner-card p-4 text-center shadow">
+            <i class="fas fa-bookmark fa-2x mb-3 text-success"></i>
+            <h4>Coordinati Nozze</h4>
+            <p class="descrizione">Menu, segnaposto, tableau de mariage e tanto altro, tutto coordinato con stile.</p>
+            <div class="dettagli mt-3">
+              <p>Ogni elemento è studiato per mantenere coerenza estetica e armonia visiva.</p>
+              <img src="img/nozze.jpg" class="img-fluid rounded mt-2" alt="Coordinati">
+            </div>
+          </div>
         </div>
-        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-          <h4>Branding Matrimoniale</h4>
-          <p>Logo degli sposi, monogrammi e identità visiva del matrimonio.</p>
+  
+        <div class="col-md-4 servizio-card" data-id="branding">
+          <div class="inner-card p-4 text-center shadow">
+            <i class="fas fa-heart fa-2x mb-3 text-danger"></i>
+            <h4>Branding Matrimoniale</h4>
+            <p class="descrizione">Logo degli sposi, monogrammi e identità visiva del matrimonio.</p>
+            <div class="dettagli mt-3">
+              <p>Un'identità visiva coordinata che renderà il vostro matrimonio davvero unico.</p>
+              <img src="img/menu.jpg" class="img-fluid rounded mt-2" alt="Branding">
+            </div>
+          </div>
         </div>
+  
       </div>
     </div>
   </section>
+  
 
-  <!-- Portfolio -->
+
+
+  <!-- Portfolio completa -->
   <section class="section container" id="portfolio">
     <h2 class="section-title text-center" data-aos="fade-up">Portfolio</h2>
-    <div class="row g-3 portfolio">
-      <div class="col-md-4" data-aos="fade-up">
-        <img src="img/inviti.jpg" alt="Invito matrimonio">
+    <div class="row g-4" id="portfolio-gallery">
+  
+      <div class="col-md-4 portfolio-item">
+        <img src="img/inviti.jpg" alt="Invito matrimonio" class="img-fluid rounded">
       </div>
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <img src="img/nozze.jpg" alt="Menu matrimonio">
+      <div class="col-md-4 portfolio-item">
+        <img src="img/nozze.jpg" alt="Menu matrimonio" class="img-fluid rounded">
       </div>
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <img src="img/menu.jpg" alt="Grafica nozze">
+      <div class="col-md-4 portfolio-item">
+        <img src="img/menu.jpg" alt="Grafica nozze" class="img-fluid rounded">
       </div>
+  
+      <div class="col-md-4 portfolio-item">
+        <img src="img/inviti.jpg" alt="Invito matrimonio" class="img-fluid rounded">
+      </div>
+      <div class="col-md-4 portfolio-item">
+        <img src="img/nozze.jpg" alt="Menu matrimonio" class="img-fluid rounded">
+      </div>
+      <div class="col-md-4 portfolio-item">
+        <img src="img/menu.jpg" alt="Grafica nozze" class="img-fluid rounded">
+      </div>
+
     </div>
   </section>
+  
+  
+  
+  
 
   <!-- Contatti -->
-  <section class="section bg-light" id="contatti">
+  <section class="section" id="contatti">
     <div class="container">
       <h2 class="section-title text-center" data-aos="fade-up">Contatti</h2>
       <form class="mx-auto" style="max-width: 600px;" data-aos="fade-up" data-aos-delay="100">
         <div class="mb-3">
           <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome">
+          <input type="text" class="form-control" id="nome" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email">
+          <input type="email" class="form-control" id="email" required>
         </div>
         <div class="mb-3">
           <label for="messaggio" class="form-label">Messaggio</label>
-          <textarea class="form-control" id="messaggio" rows="4"></textarea>
+          <textarea class="form-control" id="messaggio" rows="4" required></textarea>
         </div>
-        <button type="submit" class="btn btn-dark w-100">Invia Messaggio</button>
+        <button type="submit" class="btn btn-dark w-100" >Invia Messaggio</button>
       </form>
+  
       <div class="text-center mt-4 social-icons" data-aos="fade-up" data-aos-delay="200">
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/393123456789"><i class="fab fa-whatsapp"></i></a>
@@ -194,6 +182,7 @@
       </div>
     </div>
   </section>
+  
 
   <!-- Footer -->
   <footer>
@@ -209,6 +198,57 @@
 <!-- Animazioni Custom -->
 <script>
   AOS.init();
+
+  const servizi = document.querySelectorAll(".servizio-card");
+
+  servizi.forEach(card => {
+    card.addEventListener("click", () => {
+      const isActive = card.classList.contains("active");
+
+      // Reset tutti
+      servizi.forEach(c => {
+        c.classList.remove("active");
+        c.style.transform = "";
+      });
+
+      if (!isActive) {
+        card.classList.add("active");
+
+        // Posiziona gli altri lateralmente
+        servizi.forEach(c => {
+          if (c !== card) {
+            gsap.to(c, {
+              x: c.dataset.id === "inviti" ? "-100%" : "100%",
+              opacity: 0,
+              duration: 0.5,
+              ease: "power2.inOut"
+            });
+          }
+        });
+
+        // Porta quello attivo al centro con effetto
+        gsap.to(card, {
+          x: 0,
+          scale: 1.05,
+          rotationY: 0,
+          duration: 0.6,
+          ease: "back.out(1.4)"
+        });
+
+      } else {
+        // Chiudo vista attiva
+        servizi.forEach(c => {
+          gsap.to(c, {
+            x: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "power2.out"
+          });
+        });
+      }
+    });
+  });
 
   // Titolo animato con Anime.js
   anime.timeline({loop: false})
@@ -243,6 +283,36 @@
     new Rellax('.rellax');
   });
 </script>
+
+
+<script>
+  const items = document.querySelectorAll('.portfolio-item');
+  let active = null;
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const isSame = item === active;
+
+      items.forEach(i => {
+        i.classList.remove('focused', 'dimmed');
+      });
+
+      if (!isSame) {
+        active = item;
+        item.classList.add('focused');
+
+        items.forEach(i => {
+          if (i !== item) i.classList.add('dimmed');
+        });
+      } else {
+        active = null;
+      }
+    });
+  });
+</script>
+
+
+
 
 
 </body>
